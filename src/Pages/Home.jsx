@@ -3,6 +3,7 @@ import Announcement from "../Components/Fixed/Announcement";
 import Navbar from "../Components/Fixed/Navbar";
 import Extranav from "../Components/Fixed/Extranav";
 import Hero from "../Components/Fixed/Hero";
+import Offers from "../Components/Fixed/Offers";
 
 function Home() {
   return (
@@ -18,6 +19,9 @@ function Home() {
       </div>
       <div>
         <Hero />
+      </div>
+      <div>
+        <Offers />
       </div>
     </div>
   );
