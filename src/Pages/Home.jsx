@@ -4,6 +4,7 @@ import Navbar from "../Components/Fixed/Navbar";
 import Extranav from "../Components/Fixed/Extranav";
 import Hero from "../Components/Fixed/Hero";
 import Offers from "../Components/Fixed/Offers";
+import Banners from "../Components/Fixed/Banners";
 
 function Home() {
   return (
@@ -22,6 +23,9 @@ function Home() {
       </div>
       <div>
         <Offers />
+      </div>
+      <div>
+        <Banners />
       </div>
     </div>
   );
