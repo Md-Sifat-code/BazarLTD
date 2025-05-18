@@ -12,15 +12,6 @@ function Home() {
   return (
     <div>
       <div>
-        <Announcement />
-      </div>
-      <div>
-        <Navbar />
-      </div>
-      <div>
-        <Extranav />
-      </div>
-      <div>
         <Hero />
       </div>
       <div>

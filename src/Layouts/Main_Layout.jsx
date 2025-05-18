@@ -1,10 +1,21 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-
+import Announcement from "../Components/Fixed/Announcement";
+import Navbar from "../Components/Fixed/Navbar";
+import Extranav from "../Components/Fixed/Extranav";
 function Main_Layout() {
   return (
     <section>
       <div>
+        <div>
+          <Announcement />
+        </div>
+        <div>
+          <Navbar />
+        </div>
+        <div>
+          <Extranav />
+        </div>
         <Outlet />
       </div>
     </section>
