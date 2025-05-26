@@ -7,6 +7,7 @@ import Offers from "../Components/Fixed/Offers";
 import Banners from "../Components/Fixed/Banners";
 import ExtraAds from "../Components/Fixed/ExtraAds";
 import Discount from "../Components/Fixed/Disxount";
+import AllCategory from "../Components/Fixed/AllCategory";
 
 function Home() {
   return (
@@ -16,6 +17,9 @@ function Home() {
       </div>
       <div>
         <Offers />
+      </div>
+      <div>
+        <AllCategory/>
       </div>
       <div>
         <Banners />
