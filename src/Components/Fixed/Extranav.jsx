@@ -74,13 +74,21 @@ function Extranav() {
             )}
 
             <div className="flex flex-col md:flex-row gap-4 md:gap-6 text-gray-700 font-medium">
-              <Link to={"/"} className="cursor-pointer hover:text-blue-600">
+              <Link to={"/"} className="cursor-pointer hover:text-orange-600 ">
                 Home
               </Link>
-              <Link to={"/shop"} className="cursor-pointer hover:text-blue-600">
+              <Link
+                to={"/shop"}
+                className="cursor-pointer hover:text-orange-600 "
+              >
                 Shop
               </Link>
-              <p className="cursor-pointer hover:text-blue-600">Contact</p>
+              <Link
+                to={"/contact"}
+                className="cursor-pointer hover:text-orange-600 "
+              >
+                Contact
+              </Link>
             </div>
           </div>
 
