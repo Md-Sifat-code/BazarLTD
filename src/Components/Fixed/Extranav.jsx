@@ -13,6 +13,7 @@ import {
   FaBars,
 } from "react-icons/fa";
 import { IoMdArrowDropdown } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 function Extranav() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -73,8 +74,12 @@ function Extranav() {
             )}
 
             <div className="flex flex-col md:flex-row gap-4 md:gap-6 text-gray-700 font-medium">
-              <p className="cursor-pointer hover:text-blue-600">Home</p>
-              <p className="cursor-pointer hover:text-blue-600">Shop</p>
+              <Link to={"/"} className="cursor-pointer hover:text-blue-600">
+                Home
+              </Link>
+              <Link to={"/shop"} className="cursor-pointer hover:text-blue-600">
+                Shop
+              </Link>
               <p className="cursor-pointer hover:text-blue-600">Contact</p>
             </div>
           </div>

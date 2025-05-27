@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 function NewArrivals() {
   const [products, setProducts] = useState([]);
@@ -6,13 +6,15 @@ function NewArrivals() {
   useEffect(() => {
     const fetchNewArrivals = async () => {
       try {
-        const res = await fetch('https://baazar-ltd.onrender.com/api/product/fetch');
+        const res = await fetch(
+          "https://baazar-ltd.onrender.com/api/product/fetch"
+        );
         const data = await res.json();
         if (data.success) {
           setProducts(data.data.slice(0, 5)); // Show first 5 products
         }
       } catch (error) {
-        console.error('Error fetching products:', error);
+        console.error("Error fetching products:", error);
       }
     };
 
@@ -26,14 +28,19 @@ function NewArrivals() {
 
   return (
     <section className="py-10 bg-gray-50">
-      <div className="container mx-auto max-w-7xl px-4">
+      <div className="container mx-auto max-w-7xl ">
         <div className="mb-8 text-center">
-          <h1 className="text-3xl font-bold text-gray-800">New Arrivals</h1>
+          <h1 className="text-3xl font-bold text-gray-800 text-start">
+            New Arrivals
+          </h1>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6">
           {products.map((product) => {
-            const discounted = getDiscountedPrice(product.price, product.discount);
+            const discounted = getDiscountedPrice(
+              product.price,
+              product.discount
+            );
 
             return (
               <div
@@ -85,10 +92,10 @@ function NewArrivals() {
                       </div>
                       <p
                         className={`text-sm font-medium ${
-                          product.available ? 'text-green-500' : 'text-red-500'
+                          product.available ? "text-green-500" : "text-red-500"
                         }`}
                       >
-                        {product.available ? 'In Stock' : 'Out of Stock'}
+                        {product.available ? "In Stock" : "Out of Stock"}
                       </p>
                     </div>
 
@@ -96,7 +103,7 @@ function NewArrivals() {
                       className="w-full mt-2 bg-orange-600 hover:bg-orange-700 text-white py-2 px-4 rounded font-medium transition"
                       disabled={!product.available}
                     >
-                      {product.available ? 'Add to Cart' : 'Unavailable'}
+                      {product.available ? "Add to Cart" : "Unavailable"}
                     </button>
                   </div>
                 </div>
