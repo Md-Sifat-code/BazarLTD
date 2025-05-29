@@ -51,7 +51,7 @@ function CategoryProducts() {
   }, [searchTerm, sortOrder, allProducts]);
 
   return (
-    <section className="bg-gray-50 py-10">
+    <section className="bg-gray-50 py-10 min-h-screen">
       <div className="container mx-auto max-w-7xl px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Sidebar */}
         <aside className="bg-white p-4 rounded shadow md:col-span-1">

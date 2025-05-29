@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function NewArrivals() {
   const [products, setProducts] = useState([]);
-
+ const  navigate = useNavigate()
   useEffect(() => {
     const fetchNewArrivals = async () => {
       try {
@@ -102,6 +103,7 @@ function NewArrivals() {
                     <button
                       className="w-full mt-2 bg-orange-600 hover:bg-orange-700 text-white py-2 px-4 rounded font-medium transition"
                       disabled={!product.available}
+                      onClick={() => navigate(`/shop/products/${product.id}`)} // navigate to details page
                     >
                       {product.available ? "Add to Cart" : "Unavailable"}
                     </button>

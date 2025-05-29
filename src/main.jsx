@@ -8,7 +8,9 @@ import Login from "./Components/Auth/Login";
 import Signup from "./Components/Auth/Signup";
 import Shop from "./Pages/Shop";
 import Categoryproucts from "./Pages/Categoryproucts";
-
+import ProductDetails from "./Components/Fixed/ProductDetails";
+import { CartProvider } from "./context/CartContext";
+import Cart from "./Pages/Cart";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -31,15 +33,26 @@ const router = createBrowserRouter([
         element: <Shop />,
       },
       {
+        path: "/cart",
+        element: <Cart />,
+      },
+      {
         path: "/shop/category/:id",
         element: <Categoryproucts />,
       },
+      {
+        path: "/shop/products/:id",
+        element: <ProductDetails />,
+      },
+      
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <CartProvider>
+       <RouterProvider router={router} />
+    </CartProvider>
   </React.StrictMode>
 );
