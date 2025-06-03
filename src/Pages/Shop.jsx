@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom"; // Optional, if using React Router
+import { Link, useNavigate } from "react-router-dom";
 
 function Shop() {
   const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAllProducts = async () => {
       try {
-        const res = await fetch(
-          "https://baazar-ltd.onrender.com/api/product/fetch"
-        );
+        const res = await fetch("https://baazar-ltd.onrender.com/api/product/fetch");
         const data = await res.json();
         if (data.success) {
           setProducts(data.data);
@@ -27,8 +26,8 @@ function Shop() {
 
   return (
     <section className="py-10 bg-orange-50 min-h-screen">
-      <div className="container mx-auto max-w-7xl">
-        {/* ✅ Breadcrumb */}
+      <div className="container mx-auto px-4 max-w-7xl">
+        {/* Breadcrumb */}
         <div className="mb-8">
           <nav className="text-sm text-gray-600" aria-label="Breadcrumb">
             <ol className="list-reset flex space-x-2">
@@ -46,8 +45,8 @@ function Shop() {
           </nav>
         </div>
 
-        {/* 🛍️ Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        {/* Product Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
           {products.map((product) => {
             const discounted = getDiscountedPrice(
               product.price,
@@ -112,7 +111,12 @@ function Shop() {
                     </div>
 
                     <button
-                      className="w-full mt-2 bg-orange-600 hover:bg-orange-700 text-white py-2 px-4 rounded font-medium transition"
+                      onClick={() => navigate(`/shop/products/${product.id}`)}
+                      className={`w-full mt-2 ${
+                        product.available
+                          ? "bg-orange-600 hover:bg-orange-700"
+                          : "bg-gray-400 cursor-not-allowed"
+                      } text-white py-2 px-4 rounded font-medium transition`}
                       disabled={!product.available}
                     >
                       {product.available ? "Add to Cart" : "Unavailable"}
