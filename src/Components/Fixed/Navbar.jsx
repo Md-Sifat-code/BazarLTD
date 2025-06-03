@@ -10,8 +10,10 @@ function Navbar() {
     <section className="bg-white">
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
         <div className="flex-shrink-0 flex items-center gap-2 font-bold">
-          <img src="/g10.png" alt="Logo" className="h-10 w-auto" />
-          <h1>BazarLTD</h1>
+          <Link to="./Pages/Home" className="flex-shrink-0 flex items-center gap-2 font-bold">
+            <img src="/g10.png" alt="Logo" className="h-10 w-auto" />
+            <h1>BazarLTD</h1>
+          </Link>
         </div>
 
         <div className="flex-grow max-w-6xl mx-4">
