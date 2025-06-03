@@ -28,7 +28,7 @@ function Hero() {
             </button>
 
             <div>
-              <h2 className="text-xl font-bold text-black">$21.67</h2>
+              <h2 className="text-xl font-bold text-black">৳500</h2>
               <p className="text-sm text-gray-800">
                 Don’t miss this limited time offer.
               </p>
