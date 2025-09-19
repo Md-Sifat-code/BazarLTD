@@ -23,7 +23,7 @@ function Login() {
     setLoading(true);
     try {
       const response = await fetch(
-        "http://baazar-limited-1.onrender.com/client/login/",
+        "http://baazar-limited.onrender.com/client/login/",
         {
           method: "POST",
           headers: {

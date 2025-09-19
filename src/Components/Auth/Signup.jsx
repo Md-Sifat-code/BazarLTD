@@ -31,7 +31,7 @@ function Signup() {
 
     try {
       const response = await fetch(
-        "http://baazar-limited-1.onrender.com/client/register/",
+        "http://baazar-limited.onrender.com/client/register/",
         {
           method: "POST",
           headers: {
