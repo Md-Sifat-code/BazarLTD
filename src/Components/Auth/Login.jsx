@@ -23,19 +23,25 @@ function Login() {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch(
-        `${BASE_URL}/client/jwt/login/`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            username_or_email: formData.username_or_email,
-            password: formData.password,
-          }),
-        }
-      );
+      console.log("Request payload:", {
+        username_or_email: formData.username_or_email,
+        password: formData.password,
+      });
+
+      const response = await fetch(`${BASE_URL}/client/jwt/login/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username_or_email: formData.username_or_email,
+          password: formData.password,
+        }),
+      });
+
+      console.log("Response status:", response.status);
+      console.log("Response body:", await response.text());
+
       if (!response.ok) {
         const errorData = await response.json();
         const errorMessage = errorData.message || "Login failed. Please check your credentials and try again.";
