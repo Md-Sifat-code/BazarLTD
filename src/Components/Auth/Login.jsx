@@ -41,8 +41,15 @@ function Login() {
         const errorMessage = errorData.message || "Login failed. Please check your credentials and try again.";
         throw new Error(errorMessage);
       }
-      // You may want to handle token storage here
-      navigate("/"); // Redirect to home or dashboard
+      const data = await response.json();
+      console.log("Login successful:", data);
+
+      // Store tokens in localStorage
+      localStorage.setItem("accessToken", data.access);
+      localStorage.setItem("refreshToken", data.refresh);
+
+      // Redirect to the dashboard or home page
+      navigate("/");
     } catch (error) {
       alert(`Error: ${error.message}`);
     } finally {
