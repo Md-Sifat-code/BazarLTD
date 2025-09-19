@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import BASE_URL from "../../config/apiConfig";
 
 function Login() {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ function Login() {
     setLoading(true);
     try {
       const response = await fetch(
-        "http://baazar-limited.onrender.com/client/login/",
+        `${BASE_URL}/client/jwt/login/`,
         {
           method: "POST",
           headers: {
@@ -37,7 +38,8 @@ function Login() {
       );
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message || "Login failed.");
+        const errorMessage = errorData.message || "Login failed. Please check your credentials and try again.";
+        throw new Error(errorMessage);
       }
       // You may want to handle token storage here
       navigate("/"); // Redirect to home or dashboard

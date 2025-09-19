@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import BASE_URL from "../../config/apiConfig";
 
 function Signup() {
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ function Signup() {
 
     try {
       const response = await fetch(
-        "http://baazar-limited.onrender.com/client/register/",
+        `${BASE_URL}/client/register/`,
         {
           method: "POST",
           headers: {
@@ -49,7 +50,8 @@ function Signup() {
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message || "Registration failed.");
+        const errorMessage = errorData.message || "Registration failed. Please try again.";
+        throw new Error(errorMessage);
       }
 
       // Redirect on success
