@@ -31,22 +31,23 @@ function Signup() {
     }
 
     try {
-      const response = await fetch(
-        `${BASE_URL}/client/register/`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            username: formData.username,
-            email: formData.email,
-            mobile_no: formData.mobile_no,
-            password: formData.password,
-            confirm_password: formData.confirm_password,
-          }),
-        }
-      );
+      const response = await fetch(`${BASE_URL}/client/register/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: formData.username,
+          email: formData.email,
+          mobile_no: formData.mobile_no,
+          password: formData.password,
+          confirm_password: formData.confirm_password,
+        }),
+        credentials: "include", // Include cookies in the request
+      });
+
+      console.log("Response status:", response.status);
+      console.log("Response body:", await response.text());
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -54,7 +55,10 @@ function Signup() {
         throw new Error(errorMessage);
       }
 
-      // Redirect on success
+      const data = await response.json();
+      console.log("Registration successful:", data);
+
+      // Redirect to the login page
       navigate("/login");
     } catch (error) {
       alert(`Error: ${error.message}`);
