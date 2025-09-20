@@ -37,6 +37,7 @@ function Login() {
           username_or_email: formData.username_or_email,
           password: formData.password,
         }),
+        credentials: "include", // Include cookies in the request
       });
 
       console.log("Response status:", response.status);
@@ -47,12 +48,9 @@ function Login() {
         const errorMessage = errorData.message || "Login failed. Please check your credentials and try again.";
         throw new Error(errorMessage);
       }
+
       const data = await response.json();
       console.log("Login successful:", data);
-
-      // Store tokens in localStorage
-      localStorage.setItem("accessToken", data.access);
-      localStorage.setItem("refreshToken", data.refresh);
 
       // Redirect to the dashboard or home page
       navigate("/");
